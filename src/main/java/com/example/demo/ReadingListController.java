@@ -24,7 +24,9 @@ public class ReadingListController {
 	public String readersBooks(@PathVariable("reader") String reader, Model model) {
 		List<Book> readingList = readingListRepository.findByReader(reader);
 		if (readingList != null) {
-
+			model.addAttribute("books", readingList);
 		}
+		return "readingList";
 	}
 }
+
